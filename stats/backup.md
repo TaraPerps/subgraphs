@@ -1,4 +1,4 @@
-  - kind: ethereum/contract
+- kind: ethereum/contract
     name: FastPriceFeed
     network: telos_testnet
     source:
@@ -7,7 +7,7 @@
       startBlock: 217831382
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - FastPrice
@@ -19,7 +19,6 @@
           handler: handleSetPrice
       file: ./src/pricesMapping.ts
 
-
     (line 168)
 
-telos_testnet:https://testnet.telos.net/evm
+telos_testnet:<https://testnet.telos.net/evm>

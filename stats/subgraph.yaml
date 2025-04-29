@@ -14,7 +14,7 @@ dataSources:
       startBlock: 17271885
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - HourlyGlpStat
@@ -37,7 +37,7 @@ dataSources:
       startBlock: 17271907
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - Order
@@ -76,7 +76,7 @@ dataSources:
       startBlock: 17271930
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - FastPrice
@@ -97,7 +97,7 @@ dataSources:
       startBlock: 17271920
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - FastPrice
@@ -119,7 +119,7 @@ dataSources:
   #     startBlock: 277010779
   #   mapping:
   #     kind: ethereum/events
-  #     apiVersion: 0.0.4
+  #     apiVersion: 0.0.5
   #     language: wasm/assemblyscript
   #     entities:
   #       - GmxStat
@@ -140,7 +140,7 @@ dataSources:
   #     startBlock: 277011273
   #   mapping:
   #     kind: ethereum/events
-  #     apiVersion: 0.0.4
+  #     apiVersion: 0.0.5
   #     language: wasm/assemblyscript
   #     entities:
   #       - GmxStat
@@ -161,7 +161,7 @@ dataSources:
       startBlock: 17271995
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - GmxStat
@@ -182,7 +182,7 @@ dataSources:
   #     startBlock: 277011234
   #   mapping:
   #     kind: ethereum/events
-  #     apiVersion: 0.0.4
+  #     apiVersion: 0.0.5
   #     language: wasm/assemblyscript
   #     entities:
   #       - GmxStat
@@ -203,7 +203,7 @@ dataSources:
       startBlock: 17271871
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - TradingStat
@@ -230,7 +230,7 @@ dataSources:
       startBlock: 17271871
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - Swap

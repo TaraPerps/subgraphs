@@ -11,7 +11,7 @@ dataSources:
       startBlock: 17271928
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - CreateIncreasePosition
@@ -35,7 +35,7 @@ dataSources:
       startBlock: 17271896
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         - StakeGmx
@@ -65,7 +65,7 @@ dataSources:
       abi: Vault
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
         # - BuyUSDG
