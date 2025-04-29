@@ -42,7 +42,7 @@ import {
 } from "../generated/schema"
 
 import {
-  TLOS,
+  TARA,
   GMX,
   BASIS_POINTS_DIVISOR,
   getTokenPrice,
@@ -392,7 +392,7 @@ export function handleUpdateFundingRate(event: UpdateFundingRate): void {
 
 export function handleDistributeEthToGmx(event: Distribute): void {
   let amount = event.params.amount
-  let amountUsd = getTokenAmountUsd(TLOS, amount)
+  let amountUsd = getTokenAmountUsd(TARA, amount)
   let totalEntity = _getOrCreateGmxStat("total", "total")
   totalEntity.distributedEth += amount
   totalEntity.distributedEthCumulative += amount
@@ -603,7 +603,7 @@ function _getOrCreateGlpStat(id: string, period: string): GlpStat {
 
 export function handleDistributeEthToGlp(event: Distribute): void {
   let amount = event.params.amount
-  let amountUsd = getTokenAmountUsd(TLOS, amount)
+  let amountUsd = getTokenAmountUsd(TARA, amount)
 
   let totalEntity = _getOrCreateGlpStat("total", "total")
   totalEntity.distributedEth += amount

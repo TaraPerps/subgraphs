@@ -6,12 +6,96 @@ schema:
 
 dataSources:
   - kind: ethereum/contract
-    name: GlpManager
-    network: taraxa
+    name: ChainlinkAggregatorBTC
+    network: telos
     source:
-      address: "0x524A8375530E816ff7145AcFCF7E91F5cc44ad46"
+      address: "0x8aAC22491C83DaDFB7db256DeA2cF3119fdCF28D"
+      abi: ChainlinkAggregator
+      startBlock: 277015899
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ./abis/ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedBTC
+      file: ./src/pricesMapping.ts
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorETH
+    network: telos
+    source:
+      address: "0x8aAC22491C83DaDFB7db256DeA2cF3119fdCF28D"
+      abi: ChainlinkAggregator
+      startBlock: 277015899
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ./abis/ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedETH
+      file: ./src/pricesMapping.ts
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorUNI
+    network: telos
+    source:
+      address: "0x8aAC22491C83DaDFB7db256DeA2cF3119fdCF28D"
+      abi: ChainlinkAggregator
+      startBlock: 277015899
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ./abis/ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedUNI
+      file: ./src/pricesMapping.ts
+
+  - kind: ethereum/contract
+    name: GlpManager
+    network: telos
+    source:
+      address: "0x1B4Bd4C1a7e5Ca8E7278615d55886907961E46b8"
       abi: GlpManager
-      startBlock: 17271885
+      startBlock: 277010662
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - HourlyGlpStat
+      abis:
+        - name: GlpManager
+          file: ./abis/GlpManager.json
+      eventHandlers:
+        - event: AddLiquidity(address,address,uint256,uint256,uint256,uint256,uint256)
+          handler: handleAddLiquidity
+        - event: RemoveLiquidity(address,address,uint256,uint256,uint256,uint256,uint256)
+          handler: handleRemoveLiquidity
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: GlpManager2
+    network: telos
+    source:
+      address: "0x1B4Bd4C1a7e5Ca8E7278615d55886907961E46b8"
+      abi: GlpManager
+      startBlock: 277010662
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -30,11 +114,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: OrderBook
-    network: taraxa
+    network: telos
     source:
-      address: "0x878ED82C15f5065357AfE06185E7F3A895cbD2dA"
+      address: "0x387e9d87BE0900018766B94e3c232564DfA5C308"
       abi: OrderBook
-      startBlock: 17271907
+      startBlock: 277011009
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -69,11 +153,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: FastPriceFeed
-    network: taraxa
+    network: telos
     source:
-      address: "0x27705d29fF2f9B3a13E4aB1f7AA8B584e23c627e"
+      address: "0xAFE63F26E69e41374a96A9a0bB109BfF9Fce782d"
       abi: FastPriceFeed
-      startBlock: 17271930
+      startBlock: 277011128
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -90,11 +174,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: FastPriceEvents
-    network: taraxa
+    network: telos
     source:
-      address: "0x8D49076Ba29B6Ac99c17bA57d2b2d3C1d458142D"
+      address: "0x5266cA81C4c633F4C7269805d190894526Ed51C6"
       abi: FastPriceEvents
-      startBlock: 17271920
+      startBlock: 277011075
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -110,55 +194,55 @@ dataSources:
       file: ./src/pricesMapping.ts
 
 
-  # - kind: ethereum/contract
-  #   name: FeeGmxRewardDistributor
-  #   network: taraxa
-  #   source:
-  #     address: "0x2C019C796f5441fA29b798c0cA96D7b8bb22E27a"
-  #     abi: RewardDistributor
-  #     startBlock: 277010779
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     entities:
-  #       - GmxStat
-  #     abis:
-  #       - name: RewardDistributor
-  #         file: ./abis/RewardDistributor.json
-  #     eventHandlers:
-  #       - event: Distribute(uint256)
-  #         handler: handleDistributeEthToGmx
-  #     file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: FeeGmxRewardDistributor
+    network: telos
+    source:
+      address: "0x2C019C796f5441fA29b798c0cA96D7b8bb22E27a"
+      abi: RewardDistributor
+      startBlock: 277010779
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - GmxStat
+      abis:
+        - name: RewardDistributor
+          file: ./abis/RewardDistributor.json
+      eventHandlers:
+        - event: Distribute(uint256)
+          handler: handleDistributeEthToGmx
+      file: ./src/mapping.ts
 
-  # - kind: ethereum/contract
-  #   name: EsgmxGmxRewardDistributor
-  #   network: taraxa
-  #   source:
-  #     address: "0x5F5BAF15D99Bec63A777f166d30eC7672A113A97"
-  #     abi: RewardDistributor
-  #     startBlock: 277011273
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     entities:
-  #       - GmxStat
-  #     abis:
-  #       - name: RewardDistributor
-  #         file: ./abis/RewardDistributor.json
-  #     eventHandlers:
-  #       - event: Distribute(uint256)
-  #         handler: handleDistributeEsgmxToGmx
-  #     file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: EsgmxGmxRewardDistributor
+    network: telos
+    source:
+      address: "0x5F5BAF15D99Bec63A777f166d30eC7672A113A97"
+      abi: RewardDistributor
+      startBlock: 277011273
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - GmxStat
+      abis:
+        - name: RewardDistributor
+          file: ./abis/RewardDistributor.json
+      eventHandlers:
+        - event: Distribute(uint256)
+          handler: handleDistributeEsgmxToGmx
+      file: ./src/mapping.ts
 
   - kind: ethereum/contract
     name: FeeGlpRewardDistributor
-    network: taraxa
+    network: telos
     source:
-      address: "0x9774fB99375D903A48CA603831a270a699371f05"
+      address: "0x03e7C55779a18b04876249419DA4E25aEfaed0E8"
       abi: RewardDistributor
-      startBlock: 17271995
+      startBlock: 277011248
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -173,34 +257,34 @@ dataSources:
           handler: handleDistributeEthToGlp
       file: ./src/mapping.ts
 
-  # - kind: ethereum/contract
-  #   name: EsgmxGlpRewardDistributor
-  #   network: taraxa
-  #   source:
-  #     address: "0x3c73149Adde47b4B0e807533D3E53EBd8b1Ef185"
-  #     abi: RewardDistributor
-  #     startBlock: 277011234
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     entities:
-  #       - GmxStat
-  #     abis:
-  #       - name: RewardDistributor
-  #         file: ./abis/RewardDistributor.json
-  #     eventHandlers:
-  #       - event: Distribute(uint256)
-  #         handler: handleDistributeEsgmxToGlp
-  #     file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: EsgmxGlpRewardDistributor
+    network: telos
+    source:
+      address: "0x3c73149Adde47b4B0e807533D3E53EBd8b1Ef185"
+      abi: RewardDistributor
+      startBlock: 277011234
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - GmxStat
+      abis:
+        - name: RewardDistributor
+          file: ./abis/RewardDistributor.json
+      eventHandlers:
+        - event: Distribute(uint256)
+          handler: handleDistributeEsgmxToGlp
+      file: ./src/mapping.ts
 
   - kind: ethereum/contract
     name: Vault2
-    network: taraxa
+    network: telos
     source:
-      address: "0xCCA1234b65FF576572E6D278aE6cacfF6989D93D"
+      address: "0x8F23134EBc390856E01993dE9f7F837bcD93014a"
       abi: Vault
-      startBlock: 17271871
+      startBlock: 277010566
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -223,11 +307,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: Vault
-    network: taraxa
+    network: telos
     source:
-      address: "0xCCA1234b65FF576572E6D278aE6cacfF6989D93D"
+      address: "0x8F23134EBc390856E01993dE9f7F837bcD93014a"
       abi: Vault
-      startBlock: 17271871
+      startBlock: 277010566
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

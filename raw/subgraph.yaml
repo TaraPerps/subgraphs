@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: PositionRouter
-    network: telos
+    network: taraxa
     source:
-      address: "0xCDb590cBa353591b71bbcf3d3BD57d1F207D0aF7"
+      address: "0xf7Cb856e269f50F1bCf5F8e0333017D1ebeAf291"
       abi: PositionRouter
-      startBlock: 276854823
+      startBlock: 17271928
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -28,11 +28,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: RewardRouterV2
-    network: telos
+    network: taraxa
     source:
-      address: "0x0044b50a759BcBD9e57A866982b4BF8735Be7fb6"
+      address: "0xBF417C63e03fF5BB902cE0D1701E39C1F73ee01A"
       abi: RewardRouterV2
-      startBlock: 276854223
+      startBlock: 17271896
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -58,10 +58,10 @@ dataSources:
 
   - kind: ethereum/contract
     name: Vault
-    network: telos
+    network: taraxa
     source:
-      startBlock: 276854255
-      address: "0x95670cC1B2bFeF1D3Bd9aE38cf81691bAFD2B005"
+      startBlock: 17271871
+      address: "0xCCA1234b65FF576572E6D278aE6cacfF6989D93D"
       abi: Vault
     mapping:
       kind: ethereum/events

@@ -4,8 +4,8 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "create-local": "graph create prices --node http://46.101.76.51:8020",
-    "deploy-local": "graph deploy prices --ipfs http://46.101.76.51:5001 --node http://46.101.76.51:8020"
+    "create-local": "graph create prices --node http://137.184.38.193:8020",
+    "deploy-local": "graph deploy prices --ipfs http://137.184.38.193:5001 --node http://137.184.38.193:8020"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.21.1",

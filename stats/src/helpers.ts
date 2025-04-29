@@ -7,18 +7,18 @@ import {
 export let BASIS_POINTS_DIVISOR = BigInt.fromI32(10000)
 export let PRECISION = BigInt.fromI32(10).pow(30)
 
-export let WETH = "0xfa9343c3897324496a05fc75abed6bac29f8a40f"
-export let BTC = "0xf390830df829cf22c53c8840554b98eafc5dcbc2"
-export let TLOS = "0xd102ce6a4db07d247fcc28f366a623df0938ca9e"
-export let USDT = "0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73"
-export let USDC = "0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b"
+export let WETH = "0x39b1fc930c43606af5c353e90a55db10bcaf4087"
+export let TARA = "0x5d0fa4c5668e5809c83c95a7cef3a9dd7c68d4fe"
+export let USDT = "0x69d411cbf6dbad54bfe36f81d0a39922625bc78c"
+export let USDM = "0xc26b690773828999c2612549cc815d1f252ea15e"
+export let BTC = "0x0000000000000000000000000000000000000000"
 export let LINK = "0x0000000000000000000000000000000000000000"
 export let MIM = "0x0000000000000000000000000000000000000000"
 export let SPELL = "0x0000000000000000000000000000000000000000"
 export let SUSHI = "0x0000000000000000000000000000000000000000"
 export let FRAX = "0x0000000000000000000000000000000000000000"
-export let DAI = "0xd2504a02fABd7E546e41aD39597c377cA8B0E1Df"
-export let GMX = "0xd2504a02fABd7E546e41aD39597c377cA8B0E1Df"
+export let DAI = "0x0000000000000000000000000000000000000000"
+export let GMX = "0x0000000000000000000000000000000000000000"
 
 export function timestampToDay(timestamp: BigInt): BigInt {
   return timestamp / BigInt.fromI32(86400) * BigInt.fromI32(86400)
@@ -46,8 +46,8 @@ export function getTokenDecimals(token: String): u8 {
   tokenDecimals.set(WETH, 18)
   tokenDecimals.set(BTC, 8) // TJ
   tokenDecimals.set(LINK, 18)
-  tokenDecimals.set(TLOS, 18)
-  tokenDecimals.set(USDC, 6)
+  tokenDecimals.set(TARA, 18)
+  tokenDecimals.set(USDM, 18)
   tokenDecimals.set(USDT, 6)
   tokenDecimals.set(MIM, 18)
   tokenDecimals.set(SPELL, 18)
@@ -94,8 +94,8 @@ export function getTokenPrice(token: String): BigInt {
   prices.set(WETH, BigInt.fromI32(3350) * PRECISION)
   prices.set(BTC, BigInt.fromI32(45000) * PRECISION)
   prices.set(LINK, BigInt.fromI32(25) * PRECISION)
-  prices.set(TLOS, BigInt.fromI32(23) * PRECISION)
-  prices.set(USDC, PRECISION)
+  prices.set(TARA, BigInt.fromI32(23) * PRECISION)
+  prices.set(USDM, PRECISION)
   prices.set(USDT, PRECISION)
   prices.set(MIM, PRECISION)
   prices.set(SPELL, PRECISION / BigInt.fromI32(50)) // ~2 cents
